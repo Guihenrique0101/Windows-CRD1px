@@ -17,7 +17,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Initializing Setup
-      run: start D:\setup.ps1
+      run: |
+       cd D:\a\Windows-CRD1px\Windows-CRD1px
+       start setup.ps1
+
     - name: Starting CRD
       run: ${{ github.event.inputs.authcode }} -pin=${{ github.event.inputs.pincode }}
     - name: Keep Alive
