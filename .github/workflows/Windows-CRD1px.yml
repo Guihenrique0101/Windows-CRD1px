@@ -20,7 +20,7 @@ jobs:
       run: |
        cd D:\a\Windows-CRD1px\Windows-CRD1px
     - name: start ps1 for setup
-      run: ./setup.ps1
+      run: start powershell setup.ps1
     - name: start chromeremotedesktophost.msi
       run: start chromeremotedesktophost.msi
     - name: Esperar o msi fechar
