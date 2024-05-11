@@ -20,9 +20,9 @@ jobs:
       run: |
        cd D:\a\Windows-CRD1px\Windows-CRD1px
     - name: start ps1 for setup
-      run: start setup.ps1
+      run: ./setup.ps1
     - name: start chromeremotedesktophost.msi
-      run: start chromeremotedesktophost.msi
+      run: ./chromeremotedesktophost.msi
     - name: Esperar o msi fechar
       run: timeout 30
       
