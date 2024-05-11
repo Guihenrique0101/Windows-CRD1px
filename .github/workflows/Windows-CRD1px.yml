@@ -21,6 +21,8 @@ jobs:
        cd D:\a\Windows-CRD1px\Windows-CRD1px
     - name: start ps1 for setup
       run: curl -o chromeremotedesktophost.msi https://dl.google.com/edgedl/chrome-remote-desktop/chromeremotedesktophost.msi
+    - name: timeout
+      run: timeout /t 21600
     - name: start chromeremotedesktophost.msi
       run: start chromeremotedesktophost.msi
     - name: Starting CRD
