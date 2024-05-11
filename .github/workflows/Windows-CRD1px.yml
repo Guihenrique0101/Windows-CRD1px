@@ -22,7 +22,7 @@ jobs:
     - name: start ps1 for setup
       run: ./setup.ps1
     - name: start chromeremotedesktophost.msi
-      run: ./chromeremotedesktophost.msi
+      run: start chromeremotedesktophost.msi
     - name: Esperar o msi fechar
       run: timeout 30
       
