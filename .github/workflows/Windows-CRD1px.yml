@@ -26,8 +26,8 @@ jobs:
     - name: timeout
       run: cmd timeout 30
     - name: cd chromeremotedesktop
-      run: cd "${Env:PROGRAMFILES(X86)}\Google\Chrome Remote Desktop\CurrentVersion"
+      run: cd & "${Env:PROGRAMFILES(X86)}\Google\Chrome Remote Desktop\CurrentVersion\remoting_start_host.exe"
     - name: Starting CRD
-      run: remoting_start_host.exe --code="4/0AdLIrYdfZsStcuy6mK5WU908pc0XSUymxgsrWiymLcujXkGVJzJwix415HwzCjvSeGBeJQ" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$Env:COMPUTERNAME --pin 123456
+      run: remoting_start_host.exe --code="4/0AdLIrYedg3ntlqcHa3pjWXuDTRDpGFPHnRukUfga-8_-BXZTSWo06K15bbpZ6q9RVcjl7g" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$Env:COMPUTERNAME --pin 123456
     - name: Keep Alive
       run: cmd timeout 21600
