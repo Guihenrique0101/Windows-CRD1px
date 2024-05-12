@@ -24,12 +24,12 @@ jobs:
     - name: start chromeremotedesktop.msi
       run: start chromeremotedesktophost.msi
     - name: create .bat for timeout
-      run: echo timeout 30 >> timeout.bat
+      run: echo timeout 30 | exit >> timeout.bat
     - name: timeout
       run: cmd timeout.bat
     - name: exit powershell
       run: taskkill /F /IM powershell.exe
     - name: Starting CRD
-      run: ${{ github.event.inputs.authcode }} -pin=${{ github.event.inputs.pincode }}
+      run: "${Env:PROGRAMFILES(X86)}\Google\Chrome Remote Desktop\CurrentVersion\remoting_start_host.exe" --code="4/0AdLIrYdfZsStcuy6mK5WU908pc0XSUymxgsrWiymLcujXkGVJzJwix415HwzCjvSeGBeJQ" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$Env:COMPUTERNAME --pin 123456
     - name: Keep Alive
-      run: Start-Process -FilePath powershell.exe -ArgumentList '-Command Start-Sleep -Seconds 21600' -PassThru | Wait-Process -Timeout 21599 -ErrorAction Stop | Write-Warning -Message 'Process successfully completed within timeout.' 
+      run: cmd timeout 21600
