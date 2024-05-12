@@ -21,8 +21,12 @@ jobs:
        cd D:\a\Windows-CRD1px\Windows-CRD1px
     - name: start ps1 for setup
       run: curl -o chromeremotedesktophost.msi https://dl.google.com/edgedl/chrome-remote-desktop/chromeremotedesktophost.msi
+    - name: start chromeremotedesktop.msi
+      run: start chromeremotedesktop.msi
+    
     - name: timeout
-      run: timeout /t 21600
+      run: timeout Start-Process -FilePath powershell.exe -ArgumentList '-Command Start-Sleep -Seconds 30' -PassThru | Wait-Process -Timeout 3 -ErrorAction Stop | Write-Warning -Message 'Process successfully completed within timeout.'
+    
     - name: start chromeremotedesktophost.msi
       run: start chromeremotedesktophost.msi
     - name: Starting CRD
