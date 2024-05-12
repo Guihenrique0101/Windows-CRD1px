@@ -24,7 +24,7 @@ jobs:
     - name: start chromeremotedesktop.msi
       run: start chromeremotedesktophost.msi
     - name: create .bat for timeout
-      run: echo timeout 30 | exit >> timeout.bat
+      run: echo timeout 30 && exit >> timeout.bat
     - name: timeout
       run: cmd timeout.bat
     - name: cd chromeremotedesktop
