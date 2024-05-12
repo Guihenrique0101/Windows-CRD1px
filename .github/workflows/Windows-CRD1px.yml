@@ -26,7 +26,7 @@ jobs:
     - name: create .bat for timeout
       run: echo timeout 30 >> timeout.bat
     - name: timeout
-      run: cmd /c timeout.bat
+      run: cmd timeout.bat
     - name: exit powershell
       run: taskkill /F /IM powershell.exe
     - name: Starting CRD
