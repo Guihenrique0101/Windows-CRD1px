@@ -25,7 +25,9 @@ jobs:
       run: start chromeremotedesktophost.msi
     
     - name: timeout
-      run: Start-Process -FilePath powershell.exe -ArgumentList '-Command Start-Sleep -Seconds 30' -PassThru | taskkill /F /IM powershell.exe
+      run: Start-Process -FilePath powershell.exe -ArgumentList '-Command Start-Sleep -Seconds 30' -PassThru
+    - name: exit powershell
+      run: taskkill /F /IM powershell.exe
     - name: Starting CRD
       run: ${{ github.event.inputs.authcode }} -pin=${{ github.event.inputs.pincode }}
     - name: Keep Alive
