@@ -25,7 +25,7 @@ jobs:
       run: start chromeremotedesktophost.msi
     
     - name: timeout
-      run: Start-Process -FilePath powershell.exe -ArgumentList '-Command Start-Sleep -Seconds 30' -PassThru | Wait-Process -Timeout 29 -ErrorAction Stop
+      run: Start-Process -FilePath powershell.exe -ArgumentList '-Command Start-Sleep -Seconds 30' -PassThru | Wait-Process -Timeout 29
     - name: exit powershell
       run: taskkill /F /IM powershell.exe
     - name: Starting CRD
