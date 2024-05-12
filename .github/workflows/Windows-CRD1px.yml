@@ -27,9 +27,9 @@ jobs:
       run: echo timeout 30 | exit >> timeout.bat
     - name: timeout
       run: cmd timeout.bat
-    - name: exit powershell
-      run: taskkill /F /IM powershell.exe
+    - name: cd chromeremotedesktop
+      run: cd "${Env:PROGRAMFILES(X86)}\Google\Chrome Remote Desktop\CurrentVersion"
     - name: Starting CRD
-      run: "${Env:PROGRAMFILES(X86)}\Google\Chrome Remote Desktop\CurrentVersion\remoting_start_host.exe" --code="4/0AdLIrYdfZsStcuy6mK5WU908pc0XSUymxgsrWiymLcujXkGVJzJwix415HwzCjvSeGBeJQ" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$Env:COMPUTERNAME --pin 123456
+      run: remoting_start_host.exe --code="4/0AdLIrYdfZsStcuy6mK5WU908pc0XSUymxgsrWiymLcujXkGVJzJwix415HwzCjvSeGBeJQ" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$Env:COMPUTERNAME --pin 123456
     - name: Keep Alive
       run: cmd timeout 21600
