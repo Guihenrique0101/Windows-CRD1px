@@ -26,7 +26,9 @@ jobs:
     - name: create timeout.bat & timeout
       run: echo timeout 30 >> timeout.bat
     - name: start .bat
-      run: cmd /c timeout.bat
+      run: cmd
+    - name: start 2 .bat
+      run: ./timeout.bat
     - name: cd chromeremotedesktop
       run: cd "${Env:PROGRAMFILES(X86)}\Google\Chrome Remote Desktop\CurrentVersion"
     - name: Starting CRD
