@@ -22,13 +22,10 @@ jobs:
     - name: start ps1 for setup
       run: curl -o chromeremotedesktophost.msi https://dl.google.com/edgedl/chrome-remote-desktop/chromeremotedesktophost.msi
     - name: start chromeremotedesktop.msi
-      run: start chromeremotedesktop.msi
+      run: start chromeremotedesktophost.msi
     
     - name: timeout
       run: timeout Start-Process -FilePath powershell.exe -ArgumentList '-Command Start-Sleep -Seconds 30' -PassThru | Wait-Process -Timeout 3 -ErrorAction Stop | Write-Warning -Message 'Process successfully completed within timeout.'
-    
-    - name: start chromeremotedesktophost.msi
-      run: start chromeremotedesktophost.msi
     - name: Starting CRD
       run: ${{ github.event.inputs.authcode }} -pin=${{ github.event.inputs.pincode }}
     - name: Keep Alive
