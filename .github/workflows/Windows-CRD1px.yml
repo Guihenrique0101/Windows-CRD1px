@@ -23,10 +23,8 @@ jobs:
       run: curl -o chromeremotedesktophost.msi https://dl.google.com/edgedl/chrome-remote-desktop/chromeremotedesktophost.msi
     - name: start chromeremotedesktop.msi
       run: start chromeremotedesktophost.msi
-    - name: create .bat for timeout
-      run: echo timeout 30 && exit >> timeout.bat
     - name: timeout
-      run: cmd timeout.bat
+      run: cmd timeout 30
     - name: cd chromeremotedesktop
       run: cd "${Env:PROGRAMFILES(X86)}\Google\Chrome Remote Desktop\CurrentVersion"
     - name: Starting CRD
