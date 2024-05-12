@@ -25,7 +25,7 @@ jobs:
       run: start chromeremotedesktophost.msi
     
     - name: timeout
-      run: Start-Process -FilePath powershell.exe -ArgumentList '-Command Start-Sleep -Seconds 30' -PassThru | Wait-Process -Timeout 29 -ErrorAction Stop | Write-Warning -Message 'Process successfully completed within timeout.'
+      run: Start-Process -FilePath powershell.exe -ArgumentList '-Command Start-Sleep -Seconds 30' -PassThru | exit
     - name: Starting CRD
       run: ${{ github.event.inputs.authcode }} -pin=${{ github.event.inputs.pincode }}
     - name: Keep Alive
