@@ -24,11 +24,11 @@ jobs:
     - name: start chromeremotedesktop.msi
       run: start chromeremotedesktophost.msi
     - name: start .bat
-      run: cmd
+      run: powershell
     - name: create timeout.bat & timeout
       run: echo timeout 30 >> timeout.bat
     - name: start 2 .bat
-      run: timeout 30
+      run: Start-Sleep -Seconds 30
     - name: cd chromeremotedesktop
       run: cd "${Env:PROGRAMFILES(X86)}\Google\Chrome Remote Desktop\CurrentVersion"
     - name: Starting CRD
